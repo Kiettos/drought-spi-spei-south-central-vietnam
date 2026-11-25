@@ -47,8 +47,8 @@ if __name__ == "__main__":
         ("Tiền xử lý dữ liệu", [sys.executable, "-m", "src.data.preprocess"]),
         ("Tính toán SPI/SPEI", [sys.executable, "-m", "src.indices.spi_spei"]),
         ("Xây dựng Dataset cho ML", [sys.executable, "-m", "src.features.build_dataset"]),
-        ("Huấn luyện mô hình AI", [sys.executable, "-m", "src.models.train"]),
-        ("Đánh giá và xuất biểu đồ", [sys.executable, "-m", "src.models.evaluate"])
+        ("Huấn luyện mô hình AI", [sys.executable, "-m", "src.modelS.train"]),
+        ("Đánh giá và xuất biểu đồ", [sys.executable, "-m", "src.modelS.evaluate"])
     ]
     
     # Chạy từng bước

@@ -111,11 +111,16 @@ if menu == "📊 Xem Dự báo":
         x="lon", y="lat", color="Xác suất hạn",
         color_continuous_scale="YlOrRd", range_color=(0, 1),
         labels={"lon": "Kinh độ", "lat": "Vĩ độ", "Xác suất hạn": "Xác suất"},
-        size=[10]*len(df_month) 
     )
+    # Kích thước điểm cố định + khoá tỉ lệ trục để bản đồ không bị bóp méo.
+    # Thiếu scaleanchor thì 59 điểm bị dồn thành các cột dọc, mất hình chữ S.
+    fig.update_traces(marker=dict(size=9, line=dict(width=0.4, color="black")))
     fig.update_layout(
-        height=600, xaxis_title="Kinh độ (Lon)", yaxis_title="Vĩ độ (Lat)",
-        coloraxis_colorbar=dict(title="Xác suất hạn (0-1)")
+        height=700,
+        xaxis_title="Kinh độ (Lon)", yaxis_title="Vĩ độ (Lat)",
+        coloraxis_colorbar=dict(title="Xác suất hạn (0-1)"),
+        yaxis=dict(scaleanchor="x", scaleratio=1),
+        margin=dict(l=10, r=10, t=30, b=10),
     )
     st.plotly_chart(fig, width='stretch')
 

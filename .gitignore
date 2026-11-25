@@ -150,3 +150,6 @@ todo_next.txt*
 # Dữ liệu lớn (bỏ comment dòng dưới nếu bạn có thư mục data chứa file nặng)
 # data/
 # *.nc
+
+#backup
+_backup_before_polygon_clip/

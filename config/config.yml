@@ -7,9 +7,40 @@ region:
   - 8.5
   - 110.0
   - 16.5
+  map_file: config/gadm41_VNM_1.json
+  provinces:
+  - Da Nang
+  - Quang Nam
+  - Quang Ngai
+  - Binh Dinh
+  - Phu Yen
+  - Khanh Hoa
+  - Ninh Thuan
+  - Binh Thuan
+region_presets:
+  nam_trung_bo:
+    name: nam_trung_bo
+    bbox:
+    - 102.0
+    - 8.5
+    - 110.0
+    - 16.5
+    map_file: config/gadm41_VNM_1.json
+    provinces:
+    - Da Nang
+    - Quang Nam
+    - Quang Ngai
+    - Binh Dinh
+    - Phu Yen
+    - Khanh Hoa
+    - Ninh Thuan
+    - Binh Thuan
 time:
   start: '1984-01-01'
   end: '2026-10-31'
+  backtest:
+    start: '1984-01-01'
+    end: '2023-12-31'
   freq: MS
 index:
   type: SPEI

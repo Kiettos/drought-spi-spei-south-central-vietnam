@@ -1,0 +1,23 @@
+
+2026-11-25 11:45:56 | INFO    | Số lượng đặc trưng (Features) sử dụng: 19
+2026-11-25 11:45:56 | INFO    | Tỷ lệ hạn hán trong tập Train: 17.92%
+2026-11-25 11:45:56 | INFO    | Đang huấn luyện mô hình XGBoost...
+2026-11-25 11:45:57 | INFO    | Đang đánh giá mô hình trên tập Test (Dữ liệu chưa từng thấy)...
+2026-11-25 11:45:57 | INFO    | 
+--- KẾT QUẢ ĐÁNH GIÁ ---
+2026-11-25 11:45:57 | INFO    | ROC-AUC Score: 0.9097
+2026-11-25 11:45:57 | INFO    | 
+Báo cáo phân loại (Classification Report):
+2026-11-25 11:45:57 | INFO    |                  precision    recall  f1-score   support
+2026-11-25 11:45:57 | INFO    | 
+2026-11-25 11:45:57 | INFO    | Bình thường (0)       0.88      0.89      0.88      3830
+2026-11-25 11:45:57 | INFO    |     Hạn hán (1)       0.73      0.71      0.72      1657
+2026-11-25 11:45:57 | INFO    | 
+2026-11-25 11:45:57 | INFO    |        accuracy                           0.83      5487
+2026-11-25 11:45:57 | INFO    |       macro avg       0.80      0.80      0.80      5487
+2026-11-25 11:45:57 | INFO    |    weighted avg       0.83      0.83      0.83      5487
+2026-11-25 11:45:57 | INFO    | Ma trận nhầm lẫn (Confusion Matrix):
+2026-11-25 11:45:57 | INFO    | [[3392  438]
+2026-11-25 11:45:57 | INFO    |  [ 478 1179]]
+2026-11-25 11:45:57 | INFO    | Đã lưu mô hình tại: outputs\models\xgboost_drought_model.json
+2026-11-25 11:45:57 | INFO    | Hoàn tất huấn luyện.

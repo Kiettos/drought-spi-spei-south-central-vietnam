@@ -12,7 +12,9 @@ import xgboost as xgb
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-logging.basicConfig(level=logging.INFO, format="%(asctime)s | %(levelname)-7s | %(message)s", datefmt="%Y-%m-%d %H:%M:%S")
+from src.utils.log_setup import setup_logging
+
+setup_logging("evaluate")
 log = logging.getLogger(__name__)
 
 def load_config(path="config/config.yml"):

@@ -13,7 +13,9 @@ import pandas as pd
 from xgboost import XGBClassifier
 from sklearn.metrics import classification_report, confusion_matrix, roc_auc_score
 
-logging.basicConfig(level=logging.INFO, format="%(asctime)s | %(levelname)-7s | %(message)s", datefmt="%Y-%m-%d %H:%M:%S")
+from src.utils.log_setup import setup_logging
+
+setup_logging("train")
 log = logging.getLogger(__name__)
 
 def load_config(path="config/config.yml"):
@@ -38,8 +40,13 @@ def train_model(cfg):
         sys.exit(1)
 
     # Chọn các cột làm đặc trưng (Features)
-    # Bỏ các cột không dùng để dự đoán: thời gian, tọa độ, nhãn mục tiêu
-    features = [c for c in train_df.columns if c not in ['time', 'lat', 'lon', 'target', 'is_drought']]
+    # Bỏ các cột không dùng để dự đoán: thời gian, tọa độ, nhãn mục tiêu,
+    # mặt nạ vùng (region) và mọi cột không phải số.
+    exclude_cols = {"time", "lat", "lon", "target", "is_drought", "region", "number", "expver"}
+    features = [
+        c for c in train_df.columns
+        if c not in exclude_cols and pd.api.types.is_numeric_dtype(train_df[c])
+    ]
     
     X_train, y_train = train_df[features], train_df['is_drought']
     X_val, y_val = val_df[features], val_df['is_drought']
@@ -80,10 +87,12 @@ def train_model(cfg):
     
     log.info("\nBáo cáo phân loại (Classification Report):")
     report = classification_report(y_test, y_pred, target_names=["Bình thường (0)", "Hạn hán (1)"])
-    print(report)
+    for line in report.rstrip().splitlines():
+        log.info(line)
 
     log.info("Ma trận nhầm lẫn (Confusion Matrix):")
-    print(confusion_matrix(y_test, y_pred))
+    for line in str(confusion_matrix(y_test, y_pred)).splitlines():
+        log.info(line)
 
     # Lưu mô hình
     model_dir = cfg['paths']['models']

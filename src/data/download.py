@@ -48,7 +48,7 @@ log = logging.getLogger(__name__)
 # ---------------------------------------------------------------------------
 # Config
 # ---------------------------------------------------------------------------
-def load_config(path: str | Path = "config/config.yaml") -> dict:
+def load_config(path: str | Path = "config/config.yml") -> dict:
     with open(path, "r", encoding="utf-8") as f:
         cfg = yaml.safe_load(f)
     for k, v in cfg.get("paths", {}).items():
