@@ -1,0 +1,152 @@
+# ============================================
+# Dữ liệu — KHÔNG commit lên Git
+# ============================================
+data/raw/
+data/interim/
+data/processed/
+data/processed_bs_28/
+data/processed_bs_52/
+# Nếu muốn giữ cấu trúc thư mục rỗng, dùng .gitkeep:
+# !data/raw/.gitkeep
+# !data/interim/.gitkeep
+# !data/processed/.gitkeep
+
+# Định dạng dữ liệu khí tượng / địa không gian
+*.nc
+*.nc4
+*.grib
+*.grib2
+*.tif
+*.tiff
+*.hdf
+*.h5
+*.hdf5
+*.zarr/
+*.parquet
+*.feather
+*.pkl
+*.joblib
+*.npy
+*.npz
+*.csv
+*.xlsx
+*.xls
+# (giữ .csv nhỏ nếu cần chia sẻ mẫu — khi đó thêm ngoại lệ bên dưới)
+# !data/sample/*.csv
+
+# ============================================
+# Outputs — sinh ra khi chạy pipeline
+# ============================================
+outputs/figures/*
+outputs/tables/*
+outputs/models/*
+outputs/logs/*
+# Giữ thư mục nhưng bỏ file
+!outputs/figures/.gitkeep
+!outputs/tables/.gitkeep
+!outputs/models/.gitkeep
+!outputs/logs/.gitkeep
+
+# ============================================
+# Báo cáo — tùy chọn
+# ============================================
+reports/draft/*
+reports/final/*
+!reports/draft/.gitkeep
+!reports/final/.gitkeep
+# Nếu muốn commit PDF báo cáo cuối, bỏ comment:
+# !reports/final/*.pdf
+
+# ============================================
+# Python
+# ============================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.eggs/
+pip-wheel-metadata/
+
+# Virtual environment
+.venv/
+venv/
+env/
+ENV/
+.python-version
+
+# Conda
+.conda/
+conda-meta/
+
+# ============================================
+# Jupyter
+# ============================================
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+# Bỏ output cell trong notebook khi commit (khuyến nghị dùng nbstripout)
+# .ipynb — không ignore, nhưng nên strip output
+
+# ============================================
+# Testing & coverage
+# ============================================
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.mypy_cache/
+.ruff_cache/
+
+# ============================================
+# IDE / Editor
+# ============================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# ============================================
+# Secrets — RẤT QUAN TRỌNG
+# ============================================
+.env
+.env.*
+!.env.example
+.cdsapirc
+.cdsapirc.*
+.cdsapirc
+# Không commit API key Copernicus, token, mật khẩu
+secrets.yaml
+credentials.json
+
+# ============================================
+# Log & tạm
+# ============================================
+*.log
+*.tmp
+*.bak
+*.orig
+temp/
+tmp/
+
+
+
+# File log & ghi chú cá nhân
+log.txt
+*.log
+FIX_CDSAPIRC_ERROR.txt
+todo_next.txt*
+
+# File cấu hình chứa API Key (nếu có)
+.cdsapirc
+.env
+
+# Dữ liệu lớn (bỏ comment dòng dưới nếu bạn có thư mục data chứa file nặng)
+# data/
+# *.nc

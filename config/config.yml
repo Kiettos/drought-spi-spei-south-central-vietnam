@@ -1,0 +1,51 @@
+project:
+  name: drought-spi-spei-vn
+region:
+  name: nam_trung_bo
+  bbox:
+  - 102.0
+  - 8.5
+  - 110.0
+  - 16.5
+time:
+  start: '1984-01-01'
+  end: '2026-10-31'
+  freq: MS
+index:
+  type: SPEI
+  scales:
+  - 1
+  - 3
+  - 6
+  - 12
+  pet_method: thornthwaite
+features:
+  lags:
+  - 1
+  - 2
+  - 3
+  - 6
+  - 12
+  rolling_windows:
+  - 3
+  - 6
+  - 12
+target:
+  lead_time_months: 1
+  threshold: -1.0
+split:
+  train_end: '2013-12-31'
+  val_end: '2018-12-31'
+paths:
+  raw: data/raw
+  interim: data/interim
+  processed: data/processed
+  outputs: outputs
+  models: outputs/models
+data_sources:
+  era5:
+    variables:
+    - total_precipitation
+    - 2m_temperature
+  chirps:
+    version: '2.0'

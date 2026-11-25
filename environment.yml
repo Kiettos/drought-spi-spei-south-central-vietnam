@@ -1,0 +1,43 @@
+name: drought-spi-spei
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  # --- Khoa học dữ liệu cơ bản ---
+  - numpy
+  - pandas
+  - scipy
+  - xarray
+  - netcdf4
+  - dask
+  - rioxarray
+  - rasterio
+  # --- Trực quan hóa ---
+  - matplotlib
+  - seaborn
+  - cartopy
+  - folium
+  # --- Machine Learning ---
+  - scikit-learn
+  - xgboost
+  - lightgbm
+  # --- Deep learning (tùy chọn, bỏ nếu không dùng LSTM) ---
+  - pytorch
+  - pytorch-cuda=12.1   # bỏ nếu chỉ chạy CPU
+  # --- Notebook & tiện ích ---
+  - jupyterlab
+  - ipykernel
+  - tqdm
+  - pyyaml
+  - python-dotenv
+  - cdsapi               # tải ERA5 từ Copernicus CDS
+  # --- Test & format (tùy chọn) ---
+  - pytest
+  - black
+  - isort
+  - pip
+  - pip:
+      - climate-indices   # tính SPI/SPEI nhanh (thư viện của NCEI/NOAA)
+      - spei              # (tùy chọn) nếu muốn dùng package spei
+      - cdo               # (tùy chọn) nếu muốn gọi CDO qua python
